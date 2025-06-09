@@ -76,7 +76,10 @@ export default function EditProfile() {
     }
 
     if (response.ok) {
-      navigate("/profile");
+      navigate(`/profile`, {
+        replace: true,
+        state: { reload: Date.now() }, // This changes on every call
+      });
     } else {
       console.error("Update failed:", await response.text());
     }
