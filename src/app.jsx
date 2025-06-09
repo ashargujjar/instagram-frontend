@@ -73,7 +73,7 @@ const router = createBrowserRouter([
       const { postId } = params;
       try {
         const res = await fetch(
-          `https://instagram-backend-jyvf.onrender.com/user/post/${postId}`
+          `${process.env.REACT_APP_API_URL}/user/post/${postId}`
         );
         if (res.ok) {
           const post = await res.json();

@@ -18,7 +18,7 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `https://instagram-backend-jyvf.onrender.com/get/posts/${user._id}`
+          `${process.env.REACT_APP_API_URL}/get/posts/${user._id}`
         );
         if (res.ok) {
           const post = await res.json();

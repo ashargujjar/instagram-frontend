@@ -9,7 +9,7 @@ export default function Post({ post, image }) {
     const fetchProfile = async () => {
       try {
         const res = await fetch(
-          `https://instagram-backend-jyvf.onrender.com/profile/${post.username}`
+          `${process.env.REACT_APP_API_URL}/profile/${post.username}`
         );
         if (!res.ok) throw new Error("Network response was not ok");
         const data = await res.json();

@@ -25,14 +25,11 @@ function Signup() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const response = await fetch(
-      "https://instagram-backend-jyvf.onrender.com/signup",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(user),
-      }
-    );
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/signup`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    });
     console.log(response);
     if (response.ok) {
       const data = await response.json();

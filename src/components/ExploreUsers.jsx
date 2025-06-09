@@ -15,7 +15,7 @@ export default function ExploreUsers() {
     async function fetchUsers() {
       try {
         const us = await fetch(
-          `https://instagram-backend-jyvf.onrender.com/explore-user-notFollow/${user._id}`,
+          `${process.env.REACT_APP_API_URL}/explore-user-notFollow/${user._id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -23,7 +23,7 @@ export default function ExploreUsers() {
           }
         );
         const res = await fetch(
-          `https://instagram-backend-jyvf.onrender.com/explore-users/${user._id}`,
+          `${process.env.REACT_APP_API_URL}/explore-users/${user._id}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -55,7 +55,7 @@ export default function ExploreUsers() {
   }, []);
 
   function handleFollow(targetUser) {
-    fetch("https://instagram-backend-jyvf.onrender.com/follow", {
+    fetch(`${process.env.REACT_APP_API_URL}/follow`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -77,7 +77,7 @@ export default function ExploreUsers() {
   }
 
   function handleUnFollow(targetUser) {
-    fetch("https://instagram-backend-jyvf.onrender.com/unFollow", {
+    fetch(`${process.env.REACT_APP_API_URL}/unFollow`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

@@ -31,7 +31,7 @@ export default function CreatePost({ onSubmit }) {
     postData.append("username", formData.username);
 
     const response = await fetch(
-      "https://instagram-backend-jyvf.onrender.com/uploadImage",
+      `${process.env.REACT_APP_API_URL}/uploadImage`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

@@ -26,7 +26,7 @@ export default function Profile() {
       }
       try {
         const bioRes = await fetch(
-          `https://instagram-backend-jyvf.onrender.com/profile/${user.username}`,
+          `${process.env.REACT_APP_API_URL}/profile/${user.username}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -39,7 +39,7 @@ export default function Profile() {
         console.log(bioData);
 
         const postRes = await fetch(
-          `https://instagram-backend-jyvf.onrender.com/getPosts/${user.username}`,
+          `${process.env.REACT_APP_API_URL}/getPosts/${user.username}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

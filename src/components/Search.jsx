@@ -17,21 +17,18 @@ export default function Search() {
     e.preventDefault();
     setError("");
     if (username !== user.username) {
-      const res = await fetch(
-        `https://instagram-backend-jyvf.onrender.com/search-user`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/search-user`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
 
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({
-            username: user.username,
-            searchedUsername: username,
-          }),
-        }
-      );
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          username: user.username,
+          searchedUsername: username,
+        }),
+      });
       if (!res.ok) throw new Error("User not found");
       const data = await res.json();
       setFollowed(data.followed);
@@ -42,7 +39,7 @@ export default function Search() {
   }
 
   function handleFollow() {
-    fetch("https://instagram-backend-jyvf.onrender.com/follow", {
+    fetch(`${process.env.REACT_APP_API_URL}/follow`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -60,7 +57,7 @@ export default function Search() {
   }
 
   async function handleUnFollow() {
-    fetch("https://instagram-backend-jyvf.onrender.com/unFollow", {
+    fetch(`${process.env.REACT_APP_API_URL}/unFollow`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
