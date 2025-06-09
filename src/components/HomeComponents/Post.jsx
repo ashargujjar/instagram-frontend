@@ -28,7 +28,7 @@ export default function Post({ post, image }) {
       <div className="post-header">
         <div className="profile-photo">
           <img
-            src={post.secure_url}
+            src={profile.secure_url ? profile.secure_url : image}
             alt={`${post.username}'s avatar`}
             className="profile-image"
           />
