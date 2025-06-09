@@ -7,7 +7,7 @@ export default function Protected({ children }) {
     if (isEdited) {
       return children;
     } else {
-      <Navigate to="/editProfile" />;
+      return children;
     }
   } else {
     return isAuthenticated ? children : <Navigate to="/" />;
