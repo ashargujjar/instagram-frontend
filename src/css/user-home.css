@@ -1,0 +1,198 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: sans-serif;
+  font-size: 62.5%;
+}
+
+.side-nav {
+  padding-top: 3%;
+  padding-left: 5.25rem;
+  border-right: 1px solid #757474;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-self: flex-start;
+  width: 25rem;
+}
+.side-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 4.5rem;
+}
+.side-nav-list li {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.side-nav-list a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+}
+.side-nav-heading {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  margin-bottom: 4rem;
+  font-size: 3rem;
+}
+
+.profile-svg {
+  width: 3rem;
+  stroke: black;
+}
+.logo-svg {
+  width: 3rem;
+  margin-bottom: 4rem;
+}
+.user-profile-image {
+  height: 3rem;
+  border-radius: 100%;
+  border: 2px solid black;
+  background-image: url("/images/simon-maage-tXiMrX3Gc-g-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.posts-display {
+  width: 35rem;
+  display: flex;
+  flex-direction: column;
+  margin: 10rem auto;
+  gap: 5rem;
+}
+
+.post-container {
+  width: 350px;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.profile-photo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.post h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.post-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.icons {
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+  align-items: center;
+}
+
+.icons-post {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.likes-count {
+  font-size: 14px;
+  padding: 0 10px;
+  margin: 0;
+  color: #555;
+}
+
+.view-comments {
+  display: block;
+  font-size: 14px;
+  padding: 5px 10px 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+  h3 {
+    font-size: 0.25rem;
+    font-weight: 100;
+  }
+}
+@media (max-width: 60.43em) {
+  html {
+    font-size: 56.25%;
+  }
+  .nav-text-hide {
+    display: none;
+  }
+  .side-nav {
+    width: 8rem;
+    padding-left: 0;
+  }
+}
+@media (max-width: 43em) {
+  .html {
+    font-size: 50%;
+  }
+  .side-nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0.5rem 2rem;
+  }
+  .side-nav {
+    position: fixed;
+    bottom: 0;
+    top: 100%;
+    width: 100vw;
+    border: none;
+    background-color: white;
+    height: auto;
+    border-top: 0.5px solid grey;
+    z-index: 999;
+  }
+  .posts-display {
+    margin: 1rem auto 8rem auto;
+  }
+}
+@media (max-width: 25em) {
+  html {
+    font-size: 49.875%; /* 1rem = 7.5px */
+  }
+}
+@media (max-width: 18.25em) {
+  html {
+    font-size: 45.875%; /* 1rem = 7.5px */
+  }
+}

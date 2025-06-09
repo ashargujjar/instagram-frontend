@@ -1,0 +1,401 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: sans-serif;
+}
+.my-profile {
+  display: flex;
+  height: 100vh;
+}
+.side-nav {
+  padding-top: 3%;
+  padding-left: 5.25rem;
+  border-right: 1px solid #757474;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-self: flex-start;
+  width: 25rem;
+}
+.side-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 4.5rem;
+}
+.side-nav-list li {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.side-nav-list a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+}
+.side-nav-heading {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  margin-bottom: 4rem;
+  font-size: 3rem;
+}
+
+.profile-svg {
+  width: 3rem;
+  stroke: black;
+}
+.logo-svg {
+  width: 3rem;
+  margin-bottom: 4rem;
+}
+.user-profile-image {
+  height: 3rem;
+  border-radius: 100%;
+  border: 2px solid black;
+  background-image: url("../asssets/simon-maage-tXiMrX3Gc-g-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* user profile making */
+.user-top-header {
+  padding-top: 4rem;
+  display: grid;
+  margin: 0 auto;
+  width: 65%;
+  justify-content: center;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+}
+
+.user-top-header-view {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.user-top-profile {
+  display: flex;
+  align-items: center;
+  height: 13rem;
+  margin-left: 25%;
+  margin-top: 3rem;
+}
+.user-top-svg {
+  width: 2rem;
+}
+.user-top-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-top-button {
+  color: black;
+  text-decoration: none;
+  background-color: #f1f1f1;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+}
+.userName {
+  font-size: 2rem;
+}
+.name {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.user-top-following-information {
+  display: flex;
+  gap: 3rem;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+.user-top-following-list {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.user-top-following-list li {
+  list-style: none;
+  color: #757474;
+}
+.user-bio {
+  width: 28.5rem;
+}
+.user-profile-display {
+  min-width: 70%;
+  margin-left: 27rem;
+  padding: 1%;
+}
+.line {
+  background-color: #757474;
+  width: 95%;
+  height: 1px;
+}
+.user-photos {
+  margin-top: 10rem;
+}
+.user-photo-section-headings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  margin-bottom: 2rem;
+}
+.user-photo-section-heading {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: stretch;
+}
+.user-photo-section-heading li {
+  list-style: none;
+  font-size: 1.2rem;
+  padding-top: 1.5rem;
+  letter-spacing: 1.5px;
+}
+.user-photo-section-svg {
+  width: 19px;
+}
+.active {
+  border-top: 1px solid black;
+}
+/* user-photos-grid */
+.user-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  width: 80%;
+  gap: 0.5rem;
+  margin: 0 auto;
+  height: 90%;
+}
+.user-photos-grid .photo {
+  aspect-ratio: 1 / 1; /* Ensures square boxes */
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  background-color: #ccc; /* fallback background */
+}
+.user-photos-grid .photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo:hover {
+  filter: brightness(65%);
+
+  cursor: pointer;
+}
+
+.user-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+/* footer  */
+.footer {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 auto;
+  justify-content: space-around;
+}
+.footer-links a {
+  text-decoration: none;
+  color: #757474;
+}
+.last-footer-content {
+  width: 20rem;
+
+  margin: 0 auto;
+  margin-top: 2%;
+  color: #757474;
+  margin-bottom: 5%;
+}
+.last-footer-content p {
+  display: inline-block;
+  margin-right: 1rem;
+}
+/* side nav bottom */
+.side-nav-bottom {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  background: white;
+  opacity: 0.95;
+  width: 100%;
+}
+.side-nav-list-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 1rem 2rem;
+  list-style: none;
+}
+.side-nav-second {
+  display: none;
+}
+@media (max-width: 78.125em) {
+  .side-nav-first {
+    display: none !important;
+  }
+  .side-nav-second {
+    display: block;
+    padding-right: 0;
+  }
+  .side-nav,
+  .side-nav-second {
+    padding-left: 4rem;
+    padding-right: 0;
+  }
+  .user-profile-view {
+    padding: 2rem;
+    width: 98rem;
+    margin-left: 12rem;
+  }
+  .side-nav {
+    padding: 0;
+    width: 24rem;
+  }
+  .user-profile-display {
+    margin-left: 15rem;
+  }
+  .user-top-header {
+    gap: 2rem;
+    width: 80%;
+  }
+  .user-photos-grid {
+    width: 98rem;
+  }
+
+  .footer-links {
+    gap: 2rem;
+    margin-left: 17rem;
+    width: 90rem;
+  }
+}
+.user-top-profile {
+  width: 11rem;
+  height: 11rem;
+}
+.user-top-profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+@media (max-width: 63.625em) {
+  .user-profile-display {
+    margin-left: 12rem;
+  }
+  .line {
+    width: 100%;
+  }
+  .user-photos-grid {
+    width: 100%;
+  }
+  .user-top-header {
+    width: 100%;
+  }
+  .user-profile-display {
+    margin-left: 11rem;
+  }
+  .footer-links {
+    gap: 1rem;
+    width: 80%;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 52.43em) {
+  .user-profile-display {
+    margin-left: 6rem;
+  }
+  .side-nav-second {
+    display: none !important;
+  }
+  .footer-links {
+    display: none !important;
+  }
+  .user-profile-display {
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  .user-top-profile {
+    width: 11rem;
+    height: 11rem;
+  }
+
+  .profile-svg {
+    width: 2.75rem;
+  }
+  .user-profile-view {
+    padding-bottom: 4.5rem;
+    padding-top: 0;
+  }
+  .side-nav-bottom {
+    display: block;
+  }
+}
+@media (max-width: 39.3) {
+  .user-top-header {
+    gap: 1rem;
+  }
+  .user-top-profile {
+    margin: 0;
+  }
+  .user-top-header {
+    align-items: flex-start;
+  }
+  .user-top-profile {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+@media (max-width: 35em) {
+  html {
+    font-size: 58%;
+  }
+  .user-profile-display {
+    padding: 0;
+  }
+
+  .user-profile-view {
+    padding: 0.5rem;
+  }
+}
+@media (max-width: 28em) {
+  .user-top-header {
+    padding-top: 4rem;
+  }
+  html {
+    font-size: 52.5%;
+  }
+  .user-top-header-view {
+    gap: 0.5rem;
+  }
+  .user-top-profile {
+    width: 7rem;
+    height: 7rem;
+  }
+  .my-profile {
+    min-height: 60%;
+  }
+}

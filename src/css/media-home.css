@@ -1,0 +1,56 @@
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+  h3 {
+    font-size: 0.25rem;
+    font-weight: 100;
+  }
+}
+@media (max-width: 60.43em) {
+  html {
+    font-size: 56.25%;
+  }
+  .nav-text-hide {
+    display: none;
+  }
+  .side-nav {
+    width: 8rem;
+    padding-left: 0;
+  }
+}
+@media (max-width: 43em) {
+  .html {
+    font-size: 50%;
+  }
+  .side-nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0.5rem 2rem;
+  }
+  .side-nav {
+    position: fixed;
+    bottom: 0;
+    top: 100%;
+    width: 100vw;
+    border: none;
+    background-color: white;
+    height: auto;
+    border-top: 0.5px solid grey;
+    z-index: 999;
+  }
+  .posts-display {
+    margin: 1rem auto 8rem auto;
+  }
+}
+@media (max-width: 25em) {
+  html {
+    font-size: 49.875%; /* 1rem = 7.5px */
+  }
+}
+@media (max-width: 18.25em) {
+  html {
+    font-size: 45.875%; /* 1rem = 7.5px */
+  }
+}

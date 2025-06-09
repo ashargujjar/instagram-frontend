@@ -1,0 +1,55 @@
+@media (max-width: 60em) {
+  .Login-page {
+    padding: 2rem;
+  }
+}
+@media (max-width: 58.375em) {
+  .login-image {
+    display: none;
+  }
+  .Login-page {
+    display: block;
+  }
+  .login-form {
+    gap: 0.5rem;
+  }
+  .forget-text {
+    margin: 0.75rem;
+  }
+  .form-text {
+    margin: 0;
+  }
+}
+@media (max-width: 37.5em) {
+  html {
+    font-size: 59.25%;
+  }
+  .Login-page {
+    margin: 2rem auto 1rem auto;
+  }
+  .form-text {
+    gap: 0.5rem;
+    margin: 0rem;
+  }
+
+  .form-text {
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+  .forget-text {
+    margin-top: 1rem;
+  }
+}
+@media (max-width: 32.5em) {
+  html {
+    font-size: 55%;
+  }
+  .login-form {
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 26.375em) {
+  html {
+    font-size: 55%;
+  }
+}

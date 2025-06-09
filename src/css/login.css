@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: sans-serif;
+}
+.Login-page {
+  max-width: 100rem;
+  margin: 2.5rem auto 1rem auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: 4rem;
+}
+.login-image {
+  width: 60rem;
+  height: auto;
+  margin: 5rem 0;
+}
+.insta-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+.heading {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  padding: 2rem;
+  font-size: 6rem;
+  letter-spacing: 0.5;
+  margin-bottom: 2.25rem;
+  text-align: center;
+}
+.login-form {
+  display: flex;
+  gap: 0.75rem;
+  flex-direction: column;
+  align-items: center;
+}
+.form-input input {
+  background-color: #f9f9f9;
+  width: 25rem;
+  border: 1px solid #757474;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.form-input::placeholder {
+  color: #757474;
+}
+.login {
+  background-color: #3d0c11;
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 0.5rem;
+
+  cursor: pointer;
+  width: 25rem;
+}
+.small-txt {
+  align-self: flex-start;
+  display: inline;
+  width: 3rem;
+  font-size: 1rem;
+  color: #4a4a4a;
+  margin: 0 1.5rem;
+  padding: 1rem;
+}
+.facebook-svg {
+  width: 2rem;
+}
+.facebook {
+  display: flex;
+  color: #7678ed;
+  font-weight: 900;
+  font-size: 1.25rem;
+  align-items: center;
+  gap: 0.5rem;
+}
+.forget-text,
+.form-text {
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+.forget-text {
+  margin-top: 1rem;
+}
+.signup-link {
+  color: #7678ed;
+  text-decoration: none;
+}
+.form-text {
+  padding: 1rem;
+  margin: 1rem;
+}
+.get-apps {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 0.5rem;
+}
+.get-apps-image {
+  width: 10rem;
+  cursor: pointer;
+}
+.footer {
+  margin-bottom: 2rem;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.footer-links a {
+  text-decoration: none;
+  color: #757474;
+}
+.last-footer-content {
+  width: 20rem;
+
+  margin: 0 auto;
+  margin-top: 3rem;
+  color: #757474;
+}
+.last-footer-content p {
+  display: inline-block;
+  margin-right: 1rem;
+}
+.error {
+  margin-bottom: 8px;
+}
+.message {
+  border: 2px solid black;
+  background-color: red;
+  color: white;
+  padding: 2rem;
+  width: 30rem;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
