@@ -2,6 +2,10 @@ import { Navigate } from "react-router-dom";
 import React from "react";
 export default function Protected({ children }) {
   const isAuthenticated = localStorage.getItem("isLoggedIn");
-
-  return isAuthenticated ? children : <Navigate to="/" />;
+  const isEdited = localStorage.getItem("edited");
+  if (isAuthenticated) {
+    return isEdited ? children : <Navigate to="/editprofile" />;
+  } else {
+    return isAuthenticated ? children : <Navigate to="/" />;
+  }
 }

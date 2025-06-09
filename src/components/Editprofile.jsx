@@ -71,6 +71,9 @@ export default function EditProfile() {
         body: formData,
       }
     );
+    if (response) {
+      localStorage.setItem("edited", true);
+    }
 
     if (response.ok) {
       navigate("/profile");
