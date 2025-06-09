@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router";
 import { token as tokenget } from "../../getters/get-token";
-
+const token = tokenget();
 export default function Post({ post, image }) {
   const [profile, setProfile] = useState(null);
 
@@ -28,7 +28,7 @@ export default function Post({ post, image }) {
       <div className="post-header">
         <div className="profile-photo">
           <img
-            src={profile.secure_url ? profile.secure_url : image}
+            src={profile?.secure_url ? profile?.secure_url : image}
             alt={`${post.username}'s avatar`}
             className="profile-image"
           />
