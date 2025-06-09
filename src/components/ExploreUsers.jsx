@@ -2,16 +2,15 @@ import React, { useState, useEffect } from "react";
 import "../css/Search.css";
 import ExploreUser from "./profileComponents/ExploreUser";
 import { Link } from "react-router-dom";
-import { token as tokenget } from "../getters/get-token.js";
+import { token, token as tokenget } from "../getters/get-token.js";
 
 export default function ExploreUsers() {
   const [userlist, setUserList] = useState([]);
   const [unfowllowedList, setUnFollowedList] = useState([]);
   const user = JSON.parse(localStorage.getItem("user"));
+  const token = tokenget();
 
   useEffect(() => {
-    const token = tokenget();
-
     async function fetchUsers() {
       try {
         const us = await fetch(
@@ -57,7 +56,10 @@ export default function ExploreUsers() {
   function handleFollow(targetUser) {
     fetch(`https://instagram-backend-jyvf.onrender.com/follow`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({
         userId: targetUser._id,
         username: user.username,
@@ -79,7 +81,10 @@ export default function ExploreUsers() {
   function handleUnFollow(targetUser) {
     fetch(`https://instagram-backend-jyvf.onrender.com/unFollow`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({
         userId: targetUser._id,
         username: user.username,

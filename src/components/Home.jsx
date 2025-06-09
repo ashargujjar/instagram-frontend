@@ -5,7 +5,6 @@ import Post from "./HomeComponents/Post";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useMemo } from "react";
 import image from "../asssets/simon-maage-tXiMrX3Gc-g-unsplash.jpg";
-import { UsersIcon } from "@heroicons/react/16/solid";
 import { token as tokenget } from "../getters/get-token.js";
 
 export default function Home() {
@@ -18,7 +17,12 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `https://instagram-backend-jyvf.onrender.com/get/posts/${user._id}`
+          `https://instagram-backend-jyvf.onrender.com/get/posts/${user._id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
         );
         if (res.ok) {
           const post = await res.json();
