@@ -26,10 +26,9 @@ export default function Protected({ children }) {
   if (!isAuthenticated) return <Navigate to="/" />;
   if (!isEdited) return <Navigate to="/editProfile" />;
 
-  // While waiting for fetch to resolve, you can return null or loading
   if (bioOk === null) return <div>Loading...</div>;
 
-  if ((isAuthenticated && isEdited) || (bioOk && isAuthenticated)) {
+  if (bioOk) {
     return children;
   } else {
     return <Navigate to="/editProfile" />;
