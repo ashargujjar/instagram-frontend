@@ -32,11 +32,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/editProfile",
-    element: (
-      <Protected>
-        <EditProfile />
-      </Protected>
-    ),
+    element: <EditProfile />,
   },
   {
     path: "/search",
