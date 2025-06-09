@@ -98,7 +98,7 @@ export default function ViewPost() {
         <section className="vp-details">
           <div className="vp-user">
             <img
-              src={bio.secure_url && image}
+              src={bio.secure_url ? bio.secure_url : image}
               alt="User Profile"
               className="vp-user-img"
             />
