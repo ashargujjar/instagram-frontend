@@ -39,11 +39,7 @@ export default function Home() {
 
     fetchData();
   }, [user]);
-  useEffect(() => {
-    if (UsersPosts.length > 0) {
-      console.log(UsersPosts[0].image.path);
-    }
-  }, [UsersPosts]);
+  useEffect(() => {}, [UsersPosts]);
   return (
     <>
       <div className="container-fluid">
