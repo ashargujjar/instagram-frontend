@@ -164,7 +164,7 @@ body {
 .vp-main-image {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Changed to contain for full visibility */
+  object-fit: cover; /* Changed to contain for full visibility */
   position: absolute;
   top: 0;
   left: 0;
