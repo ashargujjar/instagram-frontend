@@ -4,7 +4,7 @@ export default function Protected({ children }) {
   const isAuthenticated = localStorage.getItem("isLoggedIn");
   const isEdited = localStorage.getItem("edited");
   if (isAuthenticated) {
-    return isEdited ? children : <Navigate to="/editprofile" />;
+    return isEdited ? children : <Navigate to="/editProfile" />;
   } else {
     return isAuthenticated ? children : <Navigate to="/" />;
   }
