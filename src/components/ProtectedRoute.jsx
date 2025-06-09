@@ -7,8 +7,8 @@ export default function Protected({ children }) {
   const isEdited = localStorage.getItem("edited") === "true";
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const username = storedUser?.username;
-  const token = localStorage.getItem("token"); // Make sure you get the token somewhere
-
+  const token = localStorage.getItem("token");
+  alert(username);
   useEffect(() => {
     if (!isAuthenticated || !isEdited) {
       setBioOk(false);
@@ -18,6 +18,7 @@ export default function Protected({ children }) {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => {
+        alert(res);
         setBioOk(res.ok);
       })
       .catch(() => setBioOk(false));
