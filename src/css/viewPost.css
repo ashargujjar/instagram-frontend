@@ -175,7 +175,6 @@ body {
   height: 100%;
   object-fit: cover; /* Fill + crop */
   object-position: center; /* Center image inside container */
-  display: block;
 }
 
 /* DETAILS */
