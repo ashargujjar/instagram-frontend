@@ -30,14 +30,17 @@ export default function Login() {
   async function onSubmit(e) {
     e.preventDefault();
 
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        username: email,
-        password: password,
-      }),
-    });
+    const response = await fetch(
+      `https://instagram-backend-jyvf.onrender.com/login`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: email,
+          password: password,
+        }),
+      }
+    );
 
     if (response.ok) {
       const data = await response.json();

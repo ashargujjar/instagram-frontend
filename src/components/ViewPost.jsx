@@ -27,7 +27,7 @@ export default function ViewPost() {
     if (comment.trim()) {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}/postComment`,
+          `https://instagram-backend-jyvf.onrender.com/postComment`,
           {
             method: "POST",
             headers: {
@@ -45,7 +45,7 @@ export default function ViewPost() {
         if (!response.ok) throw new Error("Failed to post comment");
         try {
           const res = await fetch(
-            `${process.env.REACT_APP_API_URL}/user/post/${posts._id}`
+            `https://instagram-backend-jyvf.onrender.com/user/post/${posts._id}`
           );
           if (res.ok) {
             const post = await res.json();
@@ -64,7 +64,7 @@ export default function ViewPost() {
     // delete post function
     const postId = posts._id;
     const resp = await fetch(
-      `${process.env.REACT_APP_API_URL}/userPost/${postId}`,
+      `https://instagram-backend-jyvf.onrender.com/userPost/${postId}`,
       {
         headers: {
           "Content-Type": "application/json",

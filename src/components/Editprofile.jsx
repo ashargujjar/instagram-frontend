@@ -20,7 +20,7 @@ export default function EditProfile() {
     const fetchProfile = async () => {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}/profile/${username}`,
+          `https://instagram-backend-jyvf.onrender.com/profile/${username}`,
           {
             headers: {
               Authorization: `bearer ${token}`,
@@ -62,7 +62,7 @@ export default function EditProfile() {
     formData.append("bio", data.bio);
     formData.append("username", username);
     const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/updateProfile`,
+      `https://instagram-backend-jyvf.onrender.com/updateProfile`,
       {
         headers: {
           Authorization: `bearer ${token}`,
