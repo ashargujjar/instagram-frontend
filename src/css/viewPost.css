@@ -170,6 +170,34 @@ body {
   left: 0;
 }
 
+.vp-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  width: 90%;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* IMAGE */
+.vp-image-box {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.vp-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Use 'contain' if you want the full image without cropping */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 /* DETAILS */
 .vp-details {
   padding: 1.5rem;
