@@ -10,7 +10,7 @@ import Footer from "../components/LoginComponents/footer";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setLoading] = useSate(false);
+  const [isLoading, setLoading] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
     const isLoggedIn = JSON.parse(
