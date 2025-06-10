@@ -10,6 +10,7 @@ import Footer from "../components/LoginComponents/footer";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setLoading] = useSate(false);
   const navigate = useNavigate();
   useEffect(() => {
     const isLoggedIn = JSON.parse(
@@ -29,7 +30,7 @@ export default function Login() {
   const message = location.state?.message;
   async function onSubmit(e) {
     e.preventDefault();
-
+    setLoading(true);
     const response = await fetch(
       `https://instagram-backend-jyvf.onrender.com/login`,
       {
@@ -43,6 +44,7 @@ export default function Login() {
     );
 
     if (response.ok) {
+      setLoading(false);
       const data = await response.json();
 
       localStorage.setItem("isLoggedIn", "true");
@@ -80,8 +82,8 @@ export default function Login() {
                   onChange={passwordChange}
                   value={password}
                 />
-                <button type="submit" className="login">
-                  Log in
+                <button type="submit" className="login" disabled={isLoading}>
+                  {isLoading ? "Loading..." : "Log in"}
                 </button>
                 <p className="small-txt">OR</p>
                 <div className="facebook">

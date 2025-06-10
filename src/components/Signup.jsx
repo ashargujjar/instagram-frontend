@@ -14,6 +14,7 @@ function Signup() {
     fullname: "",
     username: "",
   });
+  const [isLoading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   function handleInput(identifier, event) {
@@ -24,7 +25,7 @@ function Signup() {
   }
   async function handleSubmit(e) {
     e.preventDefault();
-
+    setLoading(true);
     const response = await fetch(
       `https://instagram-backend-jyvf.onrender.com/signup`,
       {
@@ -33,8 +34,8 @@ function Signup() {
         body: JSON.stringify(user),
       }
     );
-    console.log(response);
     if (response.ok) {
+      setLoading(false);
       const data = await response.json();
       navigate("/", { state: { mesage: data.message } });
     } else {
@@ -107,8 +108,12 @@ function Signup() {
               information to Instagram.
             </p>
 
-            <button className="signup-button" type="submit">
-              Sign up
+            <button
+              className="signup-button"
+              type="submit"
+              disabled={isLoading}
+            >
+              {isLoading ? "Signing up..." : "Sign up"}
             </button>
           </form>
         </div>
