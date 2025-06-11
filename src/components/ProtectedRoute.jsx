@@ -9,11 +9,6 @@ export default function Protected({ children }) {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    if (!isAuthenticated || !username || !token) {
-      setBioOk(false);
-      return;
-    }
-
     fetch(`https://instagram-backend-jyvf.onrender.com/profile/${username}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -22,7 +17,10 @@ export default function Protected({ children }) {
       })
       .catch(() => setBioOk(false));
   }, [isAuthenticated, username, token]);
-
+  if (!isAuthenticated || !username || !token) {
+    setBioOk(false);
+    return;
+  }
   if (!isAuthenticated) return <Navigate to="/" />;
   if (!bioOk) return <Navigate to="/editProfile" />;
 
