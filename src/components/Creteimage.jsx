@@ -5,7 +5,7 @@ import { token as tokenget } from "../getters/get-token.js";
 
 export default function CreatePost({ onSubmit }) {
   const navigate = useNavigate();
-
+  const [isLoading, setIsLoading] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"));
   const token = tokenget();
   const [formData, setFormData] = useState({
@@ -29,7 +29,7 @@ export default function CreatePost({ onSubmit }) {
     postData.append("title", formData.title);
     postData.append("image", formData.image);
     postData.append("username", formData.username);
-
+    setIsLoading(true);
     const response = await fetch(
       `https://instagram-backend-jyvf.onrender.com/uploadImage`,
       {
@@ -42,9 +42,12 @@ export default function CreatePost({ onSubmit }) {
     );
 
     if (response.ok) {
+      setIsLoading(false);
       console.log("Post inserted successfully");
       navigate("/profile");
     } else {
+      setIsLoading(false);
+
       console.error("Failed to upload post");
     }
   }
@@ -84,7 +87,9 @@ export default function CreatePost({ onSubmit }) {
         />
       </div>
 
-      <button type="submit">Create Post</button>
+      <button type="submit" disabled={isLoading}>
+        {isLoading ? "Creating..." : "Create Post"}
+      </button>
     </form>
   );
 }

@@ -8,6 +8,8 @@ import image from "../asssets/simon-maage-tXiMrX3Gc-g-unsplash.jpg";
 
 export default function ViewPost() {
   const { bio, post } = useLoaderData();
+  const [isLoading, setIsLoading] = useState(false);
+  const [commentpost, setIsCommentPost] = useState(false);
 
   const [posts, setpost] = useState(post);
   const [comment, setComment] = useState("");
@@ -23,8 +25,8 @@ export default function ViewPost() {
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(comment);
     if (comment.trim()) {
+      setIsCommentPost(true);
       try {
         const response = await fetch(
           `https://instagram-backend-jyvf.onrender.com/postComment`,
@@ -48,10 +50,13 @@ export default function ViewPost() {
             `https://instagram-backend-jyvf.onrender.com/user/post/${posts._id}`
           );
           if (res.ok) {
+            setIsCommentPost(false);
             const post = await res.json();
             setpost(post.post);
           }
         } catch (err) {
+          setIsCommentPost(false);
+
           console.log(err);
         }
         setComment(""); // Clear input on success
@@ -63,6 +68,7 @@ export default function ViewPost() {
   async function deletePost() {
     // delete post function
     const postId = posts._id;
+    setIsLoading(true);
     const resp = await fetch(
       `https://instagram-backend-jyvf.onrender.com/userPost/${postId}`,
       {
@@ -74,6 +80,7 @@ export default function ViewPost() {
       }
     );
     if (resp.ok) {
+      setIsLoading(false);
       navigate("/profile");
     } else {
       navigate(`/view-post/${postId}`);
@@ -120,14 +127,20 @@ export default function ViewPost() {
               value={comment}
               onChange={(e) => setComment(e.target.value)}
             />
-            <button type="submit">Post</button>
+            <button type="submit" disabled={commentpost}>
+              {commentpost ? "Posting..." : "Post"}Post
+            </button>
           </form>
         </section>
       </main>
       {posts?.username === user?.username ? (
         <div className="vp-footer">
-          <button className="vp-delete-btn" onClick={deletePost}>
-            Delete Post
+          <button
+            className="vp-delete-btn"
+            onClick={deletePost}
+            disabled={isLoading}
+          >
+            {isLoading ? "Deleting..." : "Delete Post"}
           </button>
         </div>
       ) : (

@@ -5,6 +5,8 @@ import "../css/Search.css";
 import { token as tokenget } from "../getters/get-token.js";
 
 export default function Search() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const [username, setUsername] = useState("");
   const [profile, setProfile] = useState(null);
   const [error, setError] = useState("");
@@ -17,6 +19,7 @@ export default function Search() {
     e.preventDefault();
     setError("");
     if (username !== user.username) {
+      setIsLoading(true);
       const res = await fetch(
         `https://instagram-backend-jyvf.onrender.com/search-user`,
         {
@@ -32,6 +35,11 @@ export default function Search() {
           }),
         }
       );
+      if (res.ok) {
+        setIsLoading(false);
+      } else {
+        isLoading(false);
+      }
       if (!res.ok) throw new Error("User not found");
       const data = await res.json();
       setFollowed(data.followed);
@@ -90,8 +98,12 @@ export default function Search() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <button onClick={handleSearch} className="search-button">
-          Search
+        <button
+          onClick={handleSearch}
+          className="search-button"
+          disabled={isLoading}
+        >
+          {isLoading ? "Searching..." : "Search"}
         </button>
       </form>
 

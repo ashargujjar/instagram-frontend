@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { token as tokenget } from "../getters/get-token.js";
 
 export default function EditProfile() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const [data, setData] = useState({
     image: null,
     name: "",
@@ -61,6 +63,7 @@ export default function EditProfile() {
     formData.append("name", data.name);
     formData.append("bio", data.bio);
     formData.append("username", username);
+    setIsLoading(true);
     const response = await fetch(
       `https://instagram-backend-jyvf.onrender.com/updateProfile`,
       {
@@ -76,11 +79,14 @@ export default function EditProfile() {
     }
 
     if (response.ok) {
+      setIsLoading(false);
       navigate(`/profile`, {
         replace: true,
         state: { reload: Date.now() }, // This changes on every call
       });
     } else {
+      setIsLoading(false);
+
       console.error("Update failed:", await response.text());
     }
     console.log("Submitting:", data);
@@ -126,8 +132,8 @@ export default function EditProfile() {
             Bio
           </Field>
 
-          <button type="submit" className="submitButton">
-            Submit
+          <button type="submit" className="submitButton" disabled={isLoading}>
+            {isLoading ? "Submitting" : "Submit"}
           </button>
         </div>
       </form>
