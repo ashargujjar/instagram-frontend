@@ -163,11 +163,13 @@ export default function Nav() {
           Profile
         </a> */}
         <button
-          className="side-nav-links"
+          className="side-nav-links logout-button"
           style={{
-            color: "red",
-            background: "none",
+            backgroundColor: "black",
+            color: "white",
             border: "none",
+            padding: "10px 20px",
+            borderRadius: "5px",
             cursor: "pointer",
           }}
           onClick={() => logout()}
