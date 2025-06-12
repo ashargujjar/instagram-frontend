@@ -128,7 +128,7 @@ export default function ViewPost() {
               onChange={(e) => setComment(e.target.value)}
             />
             <button type="submit" disabled={commentpost}>
-              {commentpost ? "Posting..." : "Post"}Post
+              {commentpost ? "Posting..." : "Post"}
             </button>
           </form>
         </section>

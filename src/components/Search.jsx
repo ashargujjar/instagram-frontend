@@ -128,13 +128,15 @@ export default function Search() {
           )}
         </div>
       )} */}
-      {profile && (
+      {profile ? (
         <ExploreUsers
           profile={profile}
           handleFollow={handleFollow}
           handleUnFollow={handleUnFollow}
           followed={followed}
         />
+      ) : (
+        "No user found"
       )}
     </div>
   );
