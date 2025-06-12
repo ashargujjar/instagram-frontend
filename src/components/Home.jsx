@@ -207,6 +207,8 @@ export default function Home() {
                   borderRadius: "5px",
                   border: "1px solid #000000",
                   padding: "10px 12px",
+                  display: "block",
+                  width: "20px",
                 }}
               >
                 <li>
