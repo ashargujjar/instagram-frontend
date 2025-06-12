@@ -34,7 +34,9 @@ export default function Post({ post, image }) {
       // Implement unlike functionality
       const res = fetch(
         `https://instagram-backend-jyvf.onrender.com/disLike/${post._id}`,
+
         {
+          method: "PATCH",
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -48,6 +50,7 @@ export default function Post({ post, image }) {
       const res = fetch(
         `https://instagram-backend-jyvf.onrender.com/like/${post._id}`,
         {
+          method: "PATCH",
           headers: {
             Authorization: `Bearer ${token}`,
           },
