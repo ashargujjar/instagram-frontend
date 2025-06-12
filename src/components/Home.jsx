@@ -198,7 +198,17 @@ export default function Home() {
                   <p>Create</p>
                 </li>
               </Link>
-              <Link to="/profile" className="side-nav-links nav-text-hide">
+              <Link
+                to="/profile"
+                className="side-nav-links nav-text-hide"
+                style={{
+                  background: "black",
+                  color: "white",
+                  borderRadius: "5px",
+                  border: "1px solid #000000",
+                  padding: "10px 20px",
+                }}
+              >
                 <li>
                   <p>Profile</p>
                 </li>
