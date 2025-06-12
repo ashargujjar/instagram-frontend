@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { token as tokenget } from "../../getters/get-token";
 const token = tokenget();
 
-export default function Post({ post, image }) {
+export default function Post({ post, image, fetchPost }) {
   const [profile, setProfile] = useState(null);
   const [isliked, setIsLiked] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"));
@@ -44,6 +44,7 @@ export default function Post({ post, image }) {
       );
       if (res.ok) {
         setIsLiked(false);
+        fetchPost();
       }
     } else {
       // Implement like functionality
@@ -58,6 +59,7 @@ export default function Post({ post, image }) {
       );
       if (res.ok) {
         setIsLiked(true);
+        fetchPost();
       }
     }
   }
