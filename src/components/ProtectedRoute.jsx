@@ -19,11 +19,9 @@ export default function Protected({ children }) {
     })
       .then((res) => {
         if (res.ok) {
-          return res.json().then((data) => {
-            setBioOk(!!data.bio); // true if bio exists, false if bio is missing
-          });
+          setBioOk(true); // Bio exists, proceed to render children
         } else {
-          setBioOk(false); // Handle non-200 responses (e.g., 404, 401)
+          setBioOk(false); // Bio missing, redirect to editProfile
         }
       })
       .catch(() => setBioOk(false)); // Handle network errors
