@@ -18,6 +18,9 @@ export default function Protected({ children }) {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => {
+        console.log("Response status:", res.status); // Debugging line
+        console.log("Response ok:", res.ok); // Debugging line
+        console.log("responre json", res.json()); // Debugging line
         if (res.ok) {
           setBioOk(true); // Bio exists, proceed to render children
         } else {
