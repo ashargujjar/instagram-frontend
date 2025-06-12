@@ -35,11 +35,9 @@ export default function Search() {
           }),
         }
       );
-      if (res.ok) {
-        setIsLoading(false);
-      } else {
-        isLoading(false);
-      }
+
+      setIsLoading(false);
+
       if (!res.ok) throw new Error("User not found");
       const data = await res.json();
       setFollowed(data.followed);
