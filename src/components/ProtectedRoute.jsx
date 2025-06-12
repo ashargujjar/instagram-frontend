@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 export default function Protected({ children }) {
-  const [bioOk, setBioOk] = useState(null); // null = loading, true = bio exists, false = bio missing
+  const [bioOk, setBioOk] = useState(false); // null = loading, true = bio exists, false = bio missing
   const isAuthenticated = localStorage.getItem("isLoggedIn") === "true";
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const username = storedUser?.username;
@@ -30,9 +30,6 @@ export default function Protected({ children }) {
   }, [isAuthenticated, username, token]);
 
   // While fetching, show a loading state to prevent premature redirects
-  if (bioOk === null) {
-    return <div>Loading...</div>;
-  }
 
   // Redirect to home if not authenticated or missing username/token
   if (!isAuthenticated || !username || !token) {
