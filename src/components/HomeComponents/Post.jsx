@@ -142,7 +142,11 @@ export default function Post({ post, image, fetchPost }) {
       {/* {/* likes implementation latter */}
 
       <p className="likes-count">
-        {post.like.likes > 0 ? post.like.likes : <p>No Likes yet! </p>}
+        {post.like.likes > 0 ? (
+          <h1 style={{ marginLeft: "5px" }}>post.like.likes</h1>
+        ) : (
+          <p>No Likes yet! </p>
+        )}
       </p>
       <Link to={`/view-post/${post._id}`}>
         <a href="#" className="view-comments">
