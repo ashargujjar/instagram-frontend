@@ -28,11 +28,11 @@ export default function Post({ post, image, fetchPost }) {
     setIsLiked(liked);
   }, [post.like.likedBy, user._id]);
 
-  function handleLike(e) {
+  async function handleLike(e) {
     e.preventDefault();
     if (isliked) {
       // Implement unlike functionality
-      const res = fetch(
+      const res = await fetch(
         `https://instagram-backend-jyvf.onrender.com/disLike/${post._id}`,
 
         {
@@ -48,7 +48,7 @@ export default function Post({ post, image, fetchPost }) {
       }
     } else {
       // Implement like functionality
-      const res = fetch(
+      const res = await fetch(
         `https://instagram-backend-jyvf.onrender.com/like/${post._id}`,
         {
           method: "PATCH",
