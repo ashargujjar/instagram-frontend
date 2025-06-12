@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { token as tokenget } from "../../getters/get-token";
 const token = tokenget();
 
@@ -23,12 +23,10 @@ export default function Post({ post, image }) {
     };
     fetchProfile();
   }, [post.username]);
-  const liked = post.like.likedBy.includes(user._id);
-  if (liked) {
-    setIsLiked(true);
-  } else {
-    setIsLiked(false);
-  }
+  useEffect(() => {
+    const liked = post.like.likedBy.includes(user._id);
+    setIsLiked(liked);
+  }, [post.like.likedBy, user._id]);
 
   function handleLike(e) {
     e.preventDefault();
