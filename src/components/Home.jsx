@@ -14,32 +14,30 @@ export default function Home() {
   const token = tokenget();
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(
-          `https://instagram-backend-jyvf.onrender.com/get/posts/${user._id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        if (res.ok) {
-          const post = await res.json();
-          const posts = post.posts;
-          setPost(posts);
-        } else {
-          setMessage("No post found. Try following more users.");
-        }
-      } catch (error) {
-        console.error("Fetch error:", error);
-        setMessage("Something went wrong. Please try again later.");
-      }
-    };
-
-    fetchData();
+    fetchPost(); // fetch once on load
   }, [user]);
-  useEffect(() => {}, [UsersPosts]);
+  async function fetchPost() {
+    try {
+      const res = await fetch(
+        `https://instagram-backend-jyvf.onrender.com/get/posts/${user._id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (res.ok) {
+        const post = await res.json();
+        const posts = post.posts;
+        setPost(posts);
+      } else {
+        setMessage("No post found. Try following more users.");
+      }
+    } catch (error) {
+      console.error("Fetch error:", error);
+      setMessage("Something went wrong. Please try again later.");
+    }
+  }
   return (
     <>
       <div className="container-fluid">
@@ -209,6 +207,7 @@ export default function Home() {
                   padding: "10px 12px",
                   display: "block",
                   width: "80px",
+                  textAlign: "center",
                 }}
               >
                 <li>
@@ -250,7 +249,7 @@ export default function Home() {
         {UsersPosts && UsersPosts.length > 0 ? (
           UsersPosts.map((u) => (
             <div key={u._id}>
-              <Post post={u} image={image} />
+              <Post post={u} image={image} fetchPost={fetchPost} />
             </div>
           ))
         ) : (

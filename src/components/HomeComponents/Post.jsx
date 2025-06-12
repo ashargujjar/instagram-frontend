@@ -31,18 +31,34 @@ export default function Post({ post, image }) {
   function handleLike(e) {
     e.preventDefault();
     if (isliked) {
-      setIsLiked(false);
-      // Implement unlike functionality here
+      // Implement unlike functionality
+      const res = fetch(
+        `https://instagram-backend-jyvf.onrender.com/disLike/${post._id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (res.ok) {
+        setIsLiked(false);
+      }
     } else {
-      setIsLiked(true);
-      // Implement like functionality here
+      // Implement like functionality
+      const res = fetch(
+        `https://instagram-backend-jyvf.onrender.com/like/${post._id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (res.ok) {
+        setIsLiked(true);
+      }
     }
   }
-  function handleDislike(e) {
-    e.preventDefault();
-    setIsLiked(false);
-    // Implement dislike functionality here
-  }
+
   return (
     <div className="post-container">
       <div className="post-header">
@@ -90,7 +106,7 @@ export default function Post({ post, image }) {
           </svg>
         ) : (
           <svg
-            onClick={handleDislike}
+            onClick={handleLike}
             width="132px"
             height="132px"
             viewBox="-0.96 -0.96 13.92 13.92"
