@@ -42,8 +42,6 @@ export default function Search() {
       const data = await res.json();
       setFollowed(data.followed);
       setProfile(data.user);
-    } else {
-      setError("user not found");
     }
   }
 
