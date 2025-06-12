@@ -200,7 +200,6 @@ export default function Home() {
               </Link>
               <Link to="/profile" className="side-nav-links nav-text-hide">
                 <li>
-                  <div className="profile-svg user-profile-image"></div>
                   <p>Profile</p>
                 </li>
               </Link>

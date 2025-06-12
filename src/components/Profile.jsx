@@ -61,7 +61,7 @@ export default function Profile() {
       <section className="my-profile">
         <div className="side-nav side-nav-first">
           <h1 className="side-nav-heading">SnapNova</h1>
-          <Nav />
+          <Nav photo={bio.secure_url} defaultPhoto={image} />
         </div>
         <div className="side-nav side-nav-second">
           <svg

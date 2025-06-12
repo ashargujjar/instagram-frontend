@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Nav() {
+export default function Nav({ photo, defaultPhoto }) {
   const navigate = useNavigate();
   function logout() {
     localStorage.clear();
