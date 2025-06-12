@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { token as tokenget } from "../../getters/get-token";
-const token = tokenget();
 
 export default function Post({ post, image, fetchPost }) {
   const [profile, setProfile] = useState(null);
   const [isliked, setIsLiked] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"));
+  const token = tokenget();
 
   useEffect(() => {
     const fetchProfile = async () => {
