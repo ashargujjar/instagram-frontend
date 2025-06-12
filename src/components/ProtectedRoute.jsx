@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 export default function Protected({ children }) {
-  const [bioOk, setBioOk] = useState(false); // null = loading, true = bio exists, false = bio missing
+  const [bioOk, setBioOk] = useState(null);
   const isAuthenticated = localStorage.getItem("isLoggedIn") === "true";
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const username = storedUser?.username;
@@ -17,31 +17,27 @@ export default function Protected({ children }) {
     fetch(`https://instagram-backend-jyvf.onrender.com/profile/${username}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
-      .then((res) => {
-        console.log("Response status:", res.status); // Debugging line
-        console.log("Response ok:", res.ok); // Debugging line
-        console.log("responre json", res.json()); // Debugging line
+      .then(async (res) => {
         if (res.ok) {
-          setBioOk(true); // Bio exists, proceed to render children
+          const data = await res.json();
+          setBioOk(!!data.bio);
         } else {
-          setBioOk(false); // Bio missing, redirect to editProfile
+          setBioOk(false);
         }
       })
-      .catch(() => setBioOk(false)); // Handle network errors
+      .catch(() => setBioOk(false));
   }, [isAuthenticated, username, token]);
 
-  // While fetching, show a loading state to prevent premature redirects
-
-  // Redirect to home if not authenticated or missing username/token
-  if (!isAuthenticated || !username || !token) {
-    return <Navigate to="/" />;
+  if (bioOk === true) {
+    return children;
   }
 
-  // Redirect to editProfile if bio is missing
-  if (!bioOk) {
+  if (bioOk === false) {
+    if (!isAuthenticated || !username || !token) {
+      return <Navigate to="/" />;
+    }
     return <Navigate to="/editProfile" />;
   }
 
-  // Render children if all checks pass
-  return children;
+  // bioOk === null => don't return anything, just let it sit until useEffect runs
 }
