@@ -143,7 +143,7 @@ export default function Post({ post, image, fetchPost }) {
 
       <p className="likes-count">
         {post.like.likes > 0 ? (
-          <h1 style={{ marginLeft: "5px" }}>post.like.likes</h1>
+          <h6 style={{ marginLeft: "5px" }}>{post.like.likes}</h6>
         ) : (
           <p>No Likes yet! </p>
         )}
